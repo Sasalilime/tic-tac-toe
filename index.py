@@ -4,6 +4,8 @@ map = [
       [' . ', ' . ', ' . ']
 ]
 
+player = 'Joueur 1'
+
 
 def draw():
     for i in range(3):
@@ -13,5 +15,11 @@ def draw():
 
 
 while True:
+    choice = int(input(f'{player}[1-9] ? > '))
+    row = (choice-1) // 3
+    print(row)
+    column = (choice-1) % 3
+    if map[row][column] == ' . ':
+        map[row][column] = ' X ' if player == 'Joueur 1' else ' 0 '
     draw()
-    a = int(input('[1-9] ? > '))
+    player = 'Joueur 1' if player == 'Joueur 2' else 'Joueur 2'
